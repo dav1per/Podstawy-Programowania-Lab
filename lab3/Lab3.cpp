@@ -4,7 +4,7 @@ Grupa: PN/P 13:15
 Temat: Laboratorium 3
 Data: 16.11.2021
 */
-////TESTUJEMY GITHUBA XDDD
+
 #include <stdio.h>
 #include <conio.h>
 #include <time.h>
