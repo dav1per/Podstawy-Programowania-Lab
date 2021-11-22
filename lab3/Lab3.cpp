@@ -1,10 +1,14 @@
 /*
-Autor: Igor W³odarczyk
+Autor: Igor Wlodarczyk
+Grupa: PN/P 13:15
+Temat: Laboratorium 3
+Data: 16.11.2021
 */
-
 
 #include <stdio.h>
 #include <conio.h>
+#include <time.h>
+#include <cstdlib>
 
 #define ROZMIAR 5
 
@@ -87,6 +91,7 @@ void sortowanie()
 			}
 		}
 	}
+	printf("Tablica zostala posortowana\n");
 }
 
 void uporzadkowanie()
@@ -154,15 +159,86 @@ void uporzadkowanie()
 	{
 		printf("Elementy tablicy sa uporzadkowane malejaco\n");
 	}
+}
 
-
+void losowe()
+{
+	srand(time(NULL));
+	int min, max;
+	int i;
+	printf("Podaj zakres losowanych liczb\n");
+	printf("min: ");
+	scanf("%d", &min);
+	printf("max: ");
+	scanf("%d", &max);
+	for (i=0; i<ROZMIAR; i++)
+	{
+		tab[i]=min+(max-min)*rand()/((double)RAND_MAX);
+	}
+	
+	printf("Tablica zostala wypelniona losowymi liczbami\n");
+}
+void menu_wyswietl()
+{
+	printf("Menu \n");
+	printf("1. Wczytywanie elementow tablicy\n");
+	printf("2. Wypisywanie elementow tablicy\n");
+	printf("3. Liczby dodatnie i ujemne\n");
+	printf("4. Uporzadkowanie elementow tablicy\n");
+	printf("5. Wypelnienie tablicy liczbami losowymi\n");
+	printf("6. Sortowanie elementow tablicy\n");
+	printf("7. Koniec\n");
+	printf("8. Wyswietl menu\n");
+	printf("--------------------------------------------\n");
 }
 
 int main()
 {
-	wczytywanie();
-	wyswietlanie();
-	statystyki();
-	uporzadkowanie();
+		printf("Autor: Igor Wlodarczyk\n");
+int n;
+bool menu = true;
+menu_wyswietl();
+while (menu == true)
+{
+	n=getch();
+	switch(n)
+	{
+		case '1':
+			wczytywanie();
+				printf("--------------------------------------------\n");
+			break;
+		case '2':
+			wyswietlanie();
+				printf("--------------------------------------------\n");
+			break;
+		case '3':
+			statystyki();
+				printf("--------------------------------------------\n");
+			break;
+		case '4':
+			uporzadkowanie();
+				printf("--------------------------------------------\n");
+			break;
+		case '5':
+			losowe();
+				printf("--------------------------------------------\n");
+			break;
+		case '6':
+			sortowanie();
+				printf("--------------------------------------------\n");
+			break;
+		case '7':
+			menu=false;
+			break;
+		case '8':
+			menu_wyswietl();
+			break;
+				
+	}
+}
+
+
+
+
 }
 
